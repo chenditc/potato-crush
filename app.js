@@ -279,6 +279,13 @@ App = function()
         }));
         wade.addSceneObject(playButton, true);
 
+        var wadeSprite = new Sprite('images/duoduo.png', self.layers.front);
+        var wadeObj = new SceneObject(wadeSprite);
+        wadeObj.setPosition(wade.getScreenWidth()/3.2 - wadeSprite.getSize().x/3, wade.getScreenHeight()/2.8 - wadeSprite.getSize().y/3);
+        wade.addSceneObject(wadeObj, true);
+
+        
+
 
     };
 
