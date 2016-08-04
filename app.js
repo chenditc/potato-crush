@@ -275,63 +275,11 @@ App = function()
         playButton.setPosition(0, 130);
         playButtonSprite.setDrawFunction(wade.drawFunctions.resizeOverTime_ (30, 16, 301, 156, 0.3, playButtonSprite.getDrawFunction(), function()
         {
-            // Create credits button
-            var creditsButtonSprite = new Sprite('images/buttonCredit.png', self.layers.front);
-            var creditsButton = new SceneObject(creditsButtonSprite);
-            creditsButtonSprite.setDrawFunction(wade.drawFunctions.fadeOpacity_(0.0, 1.0, 1.0, creditsButtonSprite.getDrawFunction()));
-            creditsButton.onMouseUp = function()
-            {
-                wade.clearScene();
-                self.credits();
-            };
-            creditsButton.setPosition(-wade.getScreenWidth()/2 + 175, wade.getScreenHeight()/2 - 180);
-            wade.addSceneObject(creditsButton, true);
-
-            // Create share buttons if social flag set
-            if(self.socialEnabled)
-            {
-                var google = new Sprite('images/google.png', self.layers.front);
-                google.setDrawFunction(wade.drawFunctions.fadeOpacity_(0, 1, 0.5, google.getDrawFunction()));
-                var googleObj = new SceneObject(google);
-                googleObj.onMouseUp = function()
-                {
-                    open('https://plus.google.com/share?url=http%3A%2F%2Fccgames.cc%2Fstg', '_blank');
-                };
-                googleObj.setPosition(-wade.getScreenWidth()/2 + 95, wade.getScreenHeight()/2 - 75);
-                wade.addSceneObject(googleObj, true);
-
-                var facebook = new Sprite('images/facebook.png', self.layers.front);
-                facebook.setDrawFunction(wade.drawFunctions.fadeOpacity_(0, 1, 0.5, facebook.getDrawFunction()));
-                var facebookObj = new SceneObject(facebook);
-                facebookObj.onMouseUp = function()
-                {
-                    open('https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fccgames.cc%2Fstg&t=Save%20The%20Galaxy%20', '_blank');
-                };
-                facebookObj.setPosition(-wade.getScreenWidth()/2 + 175, wade.getScreenHeight()/2 - 75);
-                wade.addSceneObject(facebookObj, true);
-
-                var twitter = new Sprite('images/twitter.png', self.layers.front);
-                twitter.setDrawFunction(wade.drawFunctions.fadeOpacity_(0, 1, 0.5, twitter.getDrawFunction()));
-                var twitterObj = new SceneObject(twitter);
-                twitterObj.onMouseUp = function()
-                {
-                    open('https://twitter.com/share?url=http%3A%2F%2Fccgames.cc%2Fstg&via=ClockworkChilli&text=Check%20out%20this%20awesome%20top-down%20shooter%20game%20%23freegame%20%23html5', '_blank');
-                };
-                twitterObj.setPosition(-wade.getScreenWidth()/2 + 255, wade.getScreenHeight()/2 - 75);
-                wade.addSceneObject(twitterObj, true);
-            }
+   
         }));
         wade.addSceneObject(playButton, true);
 
-        // Create wade icon
-        var wadeSprite = new Sprite('images/wadePowered.png', self.layers.front);
-        var wadeObj = new SceneObject(wadeSprite);
-        wadeObj.setPosition(wade.getScreenWidth()/2 - wadeSprite.getSize().x/2, wade.getScreenHeight()/2 - wadeSprite.getSize().y/2);
-        wadeObj.onMouseUp = function()
-        {
-            open('http://www.clockworkchilli.com');
-        };
-        wade.addSceneObject(wadeObj, true);
+
     };
 
     /**
@@ -620,40 +568,6 @@ App = function()
                         self.game();
                     };
                     wade.addSceneObject(backButton, true);
-
-                    // Create share buttons if social flag set
-                    if(self.socialEnabled)
-                    {
-                        var google = new Sprite('images/google.png', self.layers.front);
-                        google.setDrawFunction(wade.drawFunctions.fadeOpacity_(0, 1, 0.5, google.getDrawFunction()));
-                        var googleObj = new SceneObject(google);
-                        googleObj.onMouseUp = function()
-                        {
-                            open('https://plus.google.com/share?url=http%3A%2F%2Fccgames.cc%2Fstg', '_blank');
-                        };
-                        googleObj.setPosition(-225, wade.getScreenHeight()/2 - 225);
-                        wade.addSceneObject(googleObj, true);
-
-                        var facebook = new Sprite('images/facebook.png', self.layers.front);
-                        facebook.setDrawFunction(wade.drawFunctions.fadeOpacity_(0, 1, 0.5, facebook.getDrawFunction()));
-                        var facebookObj = new SceneObject(facebook);
-                        facebookObj.onMouseUp = function()
-                        {
-                            open('https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fccgames.cc%2Fstg&t=Save%20The%20Galaxy%20', '_blank');
-                        };
-                        facebookObj.setPosition(-150, wade.getScreenHeight()/2 - 225);
-                        wade.addSceneObject(facebookObj, true);
-
-                        var twitter = new Sprite('images/twitter.png', self.layers.front);
-                        twitter.setDrawFunction(wade.drawFunctions.fadeOpacity_(0, 1, 0.5, twitter.getDrawFunction()));
-                        var twitterObj = new SceneObject(twitter);
-                        twitterObj.onMouseUp = function()
-                        {
-                            open('https://twitter.com/share?url=http%3A%2F%2Fccgames.cc%2Fstg&via=ClockworkChilli&text=Check%20out%20this%20awesome%20top-down%20shooter%20game%20%23freegame%20%23html5', '_blank');
-                        };
-                        twitterObj.setPosition(-75, wade.getScreenHeight()/2 - 225);
-                        wade.addSceneObject(twitterObj, true);
-                    }
                 }));
                 var scoreTextObject = new SceneObject(scoreSprite);
                 scoreTextObject.setPosition(-scoreSprite.getSize().x/2, 0);
